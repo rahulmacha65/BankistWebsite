@@ -48,17 +48,6 @@ btnScorllTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behaviour: 'smooth' });
 });
 
-///////////////////////////////////////
-//page navigation
-
-/*document.querySelectorAll('.nav__link').forEach(function (e) {
-  e.addEventListener('click', function (el) {
-    el.preventDefault();
-    const id = this.getAttribute('href');
-    console.log(id);
-    document.querySelector(id).scrollIntoView({ behaviour: 'smooth' });
-  });
-});**/
 ////Evenet Delegation///
 
 // 1.add eventListener to common parent element
@@ -116,24 +105,6 @@ nav.addEventListener('mouseout', handHover.bind(0.5));
 nav.addEventListener('mouseout', handHover.bind(1));
 ///////////////////////////////
 //Stciky navigatio//
-// const coordinates = section1.getBoundingClientRect();
-// window.addEventListener('scroll', function (e) {
-//   if (window.scrollY > coordinates.top) nav.classList.add('sticky');
-//   else nav.classList.add('sticky');
-// });
-////Different way of sticking///
-// const obsCallback = function (entries, observer) {
-//   entries.forEach(entry => {
-//     console.log(entry);
-//   });
-// };
-// const obsOptions = {
-//   root: null,
-//   threshold: 0.1,
-// };
-// const observer = new IntersectionObserver(obsCallback, obsOptions);
-// observer.observe(section1);
-
 const header = document.querySelector('.header');
 const navigator = nav.getBoundingClientRect().height;
 const stickyNav = function (entries) {
@@ -268,145 +239,4 @@ dots.addEventListener('click', function (e) {
     activateDot(slide);
   }
 });
-///////////////////////////////
-//Life cycle of DOM event
 
-// window.addEventListener('beforeunload', function (e) {
-//   e.preventDefault();
-//   console.log(e);
-//   e.returnValue = ' ';
-// });
-
-///////////////////////////////
-
-////SELECTING  ELEMENTS///
-
-/*console.log(document.documentElement);
-console.log(document.body);
-console.log(document.head);
-
-const header = document.querySelector('.header');
-const allSection = document.querySelectorAll('.section');
-console.log(allSection);
-
-const allButton = document.getElementsByTagName('button');
-console.log(allButton);
-
-///Creating And Inserting Element////
-const message = document.createElement('div');
-message.classList.add('cookie--message');
-// message.textContent="we use Cookie for improved functionality and analytics";
-message.innerHTML = `     we use Cookie for improved functionality and analytics, 
-<button class="btn btn--close--cookie">Got it!</button>`;
-// header.prepend(message);
-header.append(message);
-
-////Delete ///
-document
-  .querySelector('.btn--close--cookie')
-  .addEventListener('click', function () {
-    message.remove();
-  });
-
-//Styles
-message.style.backgroundColor = 'grey';
-message.style.width = '120%';
-message.style.height = '15%';
-console.log(getComputedStyle(message).width);
-
-//Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
-
-console.log(logo.getAttribute('designer'));
-
-logo.setAttribute('company', 'Bankist');
-
-console.log(logo.getAttribute('src'));
-
-const link = document.querySelector('.twitter-link');
-console.log(link.href);
-console.log(link.getAttribute('href'));
-
-logo.setAttribute('data-version-number', '3.0');
-
-console.log(logo.dataset.versionNumber);
-
-//////classes////
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c');
-
-/////IMPLEMENTING THE SMOOTH SCOLLING(Learn More)////
-
-const btnScorllTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-btnScorllTo.addEventListener('click', function (e) {
-  const s1codes = section1.getBoundingClientRect();
-  // console.log(s1coodes);
-  // window.scrollTo({
-  //   left: s1codes.left + window.pageXOffset,
-  //   top: s1codes.top + window.pageYOffset,
-  //   behaviour: 'smooth',
-  // });
-  section1.scrollIntoView(s1codes, 'smooth');
-});
-/////Creating the Event Handler ////
-// const h1 = document.querySelector('h1');
-// h1.addEventListener('mouseenter', function () {
-//   setTimeout(() => console.log('rahul you entered the mouse'), 2000);
-// });
-
-// ////Deleting the Event /////
-// h1.removeEventListener('mouseenter', alert);
-
-/// OLD WAY OF DOING EVENT //////
-
-// h1.onmouseenter = function () {
-//   setTimeout(() => console.log('rahul you2222 entered the mouse'), 2000);
-// };
-
-/////Event Bubbling///////
-// rgb(0, 255, 255);
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
-console.log(randomColor(0, 255));
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  console.log(e.currentTarget === this);
-  console.log(e.currentTarget);
-
-  ////propagation
-  // e.stopPropagation();
-});
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  console.log(e.currentTarget);
-});
-document.querySelector('.nav').addEventListener(
-  'click',
-  function (e) {
-    this.style.backgroundColor = randomColor();
-    console.log(e.currentTarget);
-  },
-  true
-);**/
-
-// const h1 = document.querySelector('h1');
-
-// ///Going Downwards child
-// console.log(h1.querySelectorAll('.highlight'));
-// console.log(h1.childNodes);
-// console.log(h1.children);
-// h1.firstElementChild.style.color = 'white';
-// h1.lastElementChild.style.color = 'blue';
-// console.log(h1.parentNode);
-// h1.closest('.header').style.background = 'var(--gradient-secondary)'; //It is uesd to find parent.
-// h1.closest('h1').style.background = 'var(--gradient-primary)';
-// console.log(h1.previousSibling);
-// console.log(h1.nextSibling);
